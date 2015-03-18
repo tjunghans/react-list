@@ -1,0 +1,47 @@
+{
+  "name": "sk-list",
+  "description": "Component that renders pagination links",
+  "version": "0.0.0",
+  "main": "./lib/list",
+  "stylus": "./css/main.styl",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "scripts": {
+    "dev-browser": "mochify --watch -R spec",
+    "lint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./**/*.js",
+    "test-phantom": "mochify -R spec",
+    "test-wd": "mochify --wd",
+    "test": "npm run lint && npm run test-phantom",
+    "start": "node integration/server.js"
+  },
+  "dependencies": {
+    "react": "^0.13"
+  },
+  "devDependencies": {
+    "browserify": "^9.0",
+    "jshint": "^2.6",
+    "jshint-stylish": "^1.0",
+    "mocha": "^2.2",
+    "mochify": "^2.6",
+    "react-tools": "0.13",
+    "reactify": "1.1.0",
+    "sk-integration": "^1.0",
+    "jquery": "^1.11"
+  },
+  "files": [
+    "css",
+    "lib",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://git.webvantage.ch/skills/sk-pagination"
+  },
+  "licences" : {
+    "type" : "MIT",
+    
+  }
+}

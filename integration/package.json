@@ -1,0 +1,7 @@
+{
+  "name": "integration",
+  "version": "0.0.0",
+  "browser": "./browser",
+  "main": "./server",
+  "private": true
+}
