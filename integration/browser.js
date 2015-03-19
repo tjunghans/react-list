@@ -18,14 +18,37 @@ render(List, {
 function makeItem(id, name) {
   return {
     id: id,
-    name: name
+    name: name,
+    href: '#' + name
   };
 }
+
+var Item = React.createClass({
+  propTypes: {
+    href: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string.isRequired
+  },
+  render: function () {
+    return (
+      React.DOM.a({
+        href: this.props.href
+      }, this.props.text)
+    );
+  }
+})
+
 render(List, {
   items: [
     makeItem(0, 'Apple'), 
     makeItem(1, 'Microsoft'), 
     makeItem(2, 'Oracle')
-  ]
+  ],
+  itemComponent: Item,
+  itemFilter: function (data) {
+    return {
+      href: data.href,
+      text: data.name
+    };
+  }
 }, widget);
 
