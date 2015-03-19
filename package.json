@@ -1,6 +1,6 @@
 {
   "name": "sk-list",
-  "description": "Component that renders pagination links",
+  "description": "Component that renders dynamic html list",
   "version": "0.0.0",
   "main": "./lib/list",
   "stylus": "./css/main.styl",
