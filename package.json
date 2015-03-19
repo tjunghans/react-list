@@ -1,5 +1,5 @@
 {
-  "name": "sk-list",
+  "name": "react-list",
   "description": "Component that renders dynamic html list",
   "version": "0.0.0",
   "main": "./lib/list",
@@ -41,7 +41,6 @@
     "url": "https://github.com/tjunghans/react-list"
   },
   "licences" : {
-    "type" : "MIT",
-    
+    "type" : "MIT" 
   }
 }
