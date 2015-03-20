@@ -2,7 +2,7 @@
   "name": "react-simple-list",
   "description": "Component that renders dynamic html list",
   "author": "Thomas Junghans <thomas.junghans@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/list",
   "stylus": "./css/main.styl",
   "browserify": {
@@ -50,7 +50,7 @@
     "list",
     "html"
   ],
-  "licences" : {
-    "type" : "MIT" 
+  "licences": {
+    "type": "MIT"
   }
 }
