@@ -1,6 +1,12 @@
 # React-List
 
-**Usage**
+[![SemVer]](http://semver.org)
+[![License]](https://github.com/tjunghans/react-list/blob/master/LICENCE)
+
+A react component that renders an array of objects (items) using the give component (itemComponent).
+
+
+## Usage
 
 ```javascript
 
@@ -42,6 +48,7 @@ React.render(React.createElement(list, {
 }), container);
 
 ```
+
 
 ## Properties
 
