@@ -3,13 +3,12 @@
 'use strict';
 
 var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
 var assert = require('assert');
 var List = require('../lib/list');
 
 function $(selector, context) {
   context = context || document;
-  return context.querySelectorAll(selector)
+  return context.querySelectorAll(selector);
 }
 
 // Fixture
@@ -23,12 +22,25 @@ var dummyComponent = React.createClass({
       React.DOM.span({className: this.props.cssClass}, this.props.text)
     );
   }
-})
-
+});
 
 function prepareParams(params) {
   if (!params.items) {
     params.items = ['a', 'b', 'c'];
+  }
+
+  if (!params.itemComponent) {
+    params.itemComponent = React.createClass({
+      render: function () {
+        return (React.DOM.span(null, this.props.text));
+      }
+    });
+  }
+
+  if (!params.itemFilter) {
+    params.itemFilter = function (item) {
+      return { text: item};
+    };
   }
 
   return params;
@@ -55,9 +67,20 @@ describe('component', function(){
     }
   });
 
-  it('renders container with item component', function(){
+  it('renders list', function () {
+    render({items: ['foo']});
+
+    assert.equal($('li', div).length, 1);
+  });
+
+  it('renders list with css class', function () {
+    render({ cssClass: 'foobarbaz'});
+
+    assert.equal($('ul.foobarbaz', div).length, 1);
+  });
+
+  it('renders container with item object array', function(){
     render({
-      cssClass: 'user-list',
       items: [
         {fullName: 'Max Muster'},
         {fullName: 'Joe Soap'},
@@ -72,7 +95,7 @@ describe('component', function(){
       itemComponent: dummyComponent
     });
 
-    assert.strictEqual($('ul.user-list', div).length, 1);
+
     assert.strictEqual($('.full-name', div).length, 3);
     assert.strictEqual($('span.full-name', div)[0].textContent, 'Max Muster');
   });

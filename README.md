@@ -37,7 +37,8 @@ function itemFilter(item) {
 React.render(React.createElement(list, {
 	items: items,
 	itemFilter: itemFilter,
-	itemComponent: itemComponent
+	itemComponent: itemComponent,
+	cssClass: 'list'
 }), container);
 
 ```
