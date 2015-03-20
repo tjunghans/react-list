@@ -6,6 +6,15 @@
 A react component that renders an array of objects (items) using the give component (itemComponent).
 
 
+## Install
+
+Install as node dependency:
+
+```
+npm install react-simplelist --save
+```
+
+
 ## Usage
 
 ```javascript
@@ -55,5 +64,13 @@ React.render(React.createElement(list, {
 - `items`: an array of items, where items can be an arbitrary object
 - `itemFilter`: a function that is called with each item and used to map the item to the properties of itemComponent
 - `itemComponent`: a react class that is used to display an item
+
+
+## License
+
+MIT
+
+[SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
+[License]: http://img.shields.io/npm/l/mochify.svg
 
 
