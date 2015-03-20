@@ -11,7 +11,7 @@ A react component that renders an array of objects (items) using the give compon
 Install as node dependency:
 
 ```
-npm install react-simplelist --save
+npm install react-simple-list --save
 ```
 
 
@@ -20,7 +20,7 @@ npm install react-simplelist --save
 ```javascript
 
 var React = require('react');
-var list = require('react-list');
+var list = require('react-simple-list');
 
 var container = document.querySelector('body');
 
