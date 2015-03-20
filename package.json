@@ -1,7 +1,7 @@
 {
   "name": "react-simple-list",
   "description": "Component that renders dynamic html list",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./lib/list",
   "stylus": "./css/main.styl",
   "browserify": {
