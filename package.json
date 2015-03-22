@@ -29,7 +29,7 @@
     "mochify": "^2.6",
     "react-tools": "0.13",
     "reactify": "1.1.0",
-    "sk-integration": "^1.0",
+    "react-integration": "^0.1",
     "jquery": "^1.11"
   },
   "files": [

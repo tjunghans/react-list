@@ -1,2 +1,2 @@
 'use strict';
-require('sk-integration')(__dirname + '/..');
+require('react-integration')(__dirname + '/..');
