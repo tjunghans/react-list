@@ -5,11 +5,6 @@
   "version": "0.0.2",
   "main": "./lib/list",
   "stylus": "./css/main.styl",
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
-  },
   "scripts": {
     "dev-browser": "mochify --watch -R spec",
     "lint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./**/*.js",
@@ -22,15 +17,12 @@
     "react": "^0.13"
   },
   "devDependencies": {
-    "browserify": "^9.0",
     "jshint": "^2.6",
     "jshint-stylish": "^1.0",
     "mocha": "^2.2",
     "mochify": "^2.6",
     "react-tools": "0.13",
-    "reactify": "1.1.0",
-    "react-integration": "^0.1",
-    "jquery": "^1.11"
+    "react-integration": "^0.1"
   },
   "files": [
     "css",
