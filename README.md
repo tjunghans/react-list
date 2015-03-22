@@ -66,6 +66,11 @@ React.render(React.createElement(list, {
 - `itemComponent`: a react class that is used to display an item
 
 
+## Preview
+
+Run `node integration` to preview the component on http://localhost:8000
+
+
 ## License
 
 MIT
