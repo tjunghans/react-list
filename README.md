@@ -5,6 +5,8 @@
 
 A react component that renders an array of objects (items) using the give component (itemComponent).
 
+[Demo](http://tangiblej.neocities.org/react-list-example.html)
+
 
 ## Install
 
@@ -15,14 +17,26 @@ npm install react-simple-list --save
 ```
 
 
+## Quickstart
+
+```
+npm start & npm run watch
+```
+
+
+## Commands
+
+- `npm run build` - build production css and js
+- `npm run watch` - compile css and js
+- `npm start` - start static dev server
+
+
 ## Usage
 
 ```javascript
 
 var React = require('react');
 var list = require('react-simple-list');
-
-var container = document.querySelector('body');
 
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
@@ -54,7 +68,7 @@ React.render(React.createElement(list, {
 	itemFilter: itemFilter,
 	itemComponent: itemComponent,
 	cssClass: 'list'
-}), container);
+}), document.querySelector('#content'));
 
 ```
 

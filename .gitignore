@@ -1,4 +1,4 @@
-integration/*.css
-integration/bundle.js
+public/bundle.js
+public/style.css
 node_modules
-npm-debug.log
+*.log

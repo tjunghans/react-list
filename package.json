@@ -4,29 +4,34 @@
   "author": "Thomas Junghans <thomas.junghans@gmail.com>",
   "version": "0.1.1",
   "main": "./lib/list",
-  "stylus": "./css/main.styl",
   "scripts": {
-    "dev-browser": "mochify --watch -R spec",
-    "lint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./**/*.js",
-    "test-phantom": "mochify -R spec",
-    "test-wd": "mochify --wd",
-    "test": "npm run lint && npm run test-phantom",
-    "start": "node integration/server.js"
+    "test:browser": "mochify",
+    "watch:browser": "npm run test:browser -- --watch",
+    "lint": "jslint --edition=latest --color ./lib/*.js ./public/main.js",
+    "pretest": "npm run lint",
+    "test": "npm run test:browser",
+    "build:js": "NODE_ENV=production browserify ./public/main.js | uglifyjs -cm > public/bundle.js",
+    "build:css": "stylus --compress ./css/main.styl --out ./public/style.css",
+    "build": "npm run build:js && npm run build:css",
+    "start": "ecstatic -p 8000 public",
+    "watch:js": "watchify ./public/main.js -o public/bundle.js -dv",
+    "watch:css": "stylus --line-numbers --watch ./css/main.styl --out ./public/style.css",
+    "watch": "npm run watch:js & npm run watch:css"
   },
   "dependencies": {
-    "react": "^0.13"
-  },
-  "devDependencies": {
-    "jshint": "^2.6",
-    "jshint-stylish": "^1.0",
-    "mocha": "^2.2",
+    "browserify": "^10.2",
+    "ecstatic": "^0.8",
+    "jslint": "^0.8",
     "mochify": "^2.6",
-    "react-tools": "0.13",
-    "react-integration": "^0.1"
+    "react": "^0.13",
+    "stylus": "^0.52",
+    "uglify-js": "^2.4",
+    "watchify": "^3.2"
   },
   "files": [
     "css",
     "lib",
+    "public",
     "README.md"
   ],
   "repository": {

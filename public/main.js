@@ -3,8 +3,6 @@
 var React = require('react');
 var list = require('../');
 
-var widget = document.querySelector('.widget');
-
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
   {id: 2, firstname: 'India', lastname: 'Juliet'},
@@ -35,5 +33,4 @@ React.render(React.createElement(list, {
   itemFilter: itemFilter,
   itemComponent: itemComponent,
   cssClass: 'list'
-}), widget);
-
+}), document.querySelector('#content'));
