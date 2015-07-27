@@ -23,6 +23,7 @@ npm install react-simple-list --save
 npm start & npm run watch
 ```
 
+
 ## Commands
 
 - `npm run build` - build production css and js
@@ -33,7 +34,6 @@ npm start & npm run watch
 ## Usage 1 - Basic Example)
 
 ```javascript
-
 var React = require('react');
 var list = require('react-simple-list');
 
@@ -43,8 +43,10 @@ React.render(React.createElement(list, {
 
 ```
 
+
 ## Usage 2 - With item component and filter
 
+```javascript
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
   {id: 2, firstname: 'India', lastname: 'Juliet'},
