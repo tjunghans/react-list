@@ -29,30 +29,14 @@ function prepareParams(params) {
     params.items = ['a', 'b', 'c'];
   }
 
-  if (!params.itemComponent) {
-    params.itemComponent = React.createClass({
-      render: function () {
-        return (React.DOM.span(null, this.props.text));
-      }
-    });
-  }
-
-  if (!params.itemFilter) {
-    params.itemFilter = function (item) {
-      return { text: item};
-    };
-  }
-
   return params;
 }
 
-describe('component', function(){
-
+describe('component', function () {
   var div;
-  var comp;
 
   function render(params) {
-    comp = React.render(React.createElement(List,
+    React.render(React.createElement(List,
       prepareParams(params)), div);
   }
 
@@ -63,7 +47,6 @@ describe('component', function(){
   afterEach(function () {
     if (div) {
       React.unmountComponentAtNode(div);
-      comp = null;
     }
   });
 
@@ -79,7 +62,7 @@ describe('component', function(){
     assert.equal($('ul.foobarbaz', div).length, 1);
   });
 
-  it('renders container with item object array', function(){
+  it('renders container with item object array', function () {
     render({
       items: [
         {fullName: 'Max Muster'},

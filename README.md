@@ -23,7 +23,6 @@ npm install react-simple-list --save
 npm start & npm run watch
 ```
 
-
 ## Commands
 
 - `npm run build` - build production css and js
@@ -31,17 +30,25 @@ npm start & npm run watch
 - `npm start` - start static dev server
 
 
-## Usage
+## Usage 1 - Basic Example)
 
 ```javascript
 
 var React = require('react');
 var list = require('react-simple-list');
 
+React.render(React.createElement(list, {
+  items: ['Java', 'Java Flash', 'JavaScript']
+}), document.querySelector('#list-1'));
+
+```
+
+## Usage 2 - With item component and filter
+
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
   {id: 2, firstname: 'India', lastname: 'Juliet'},
-  {id: 3, firstname: 'Alpha', lastname: 'Bravo'},
+  {id: 3, firstname: 'Alpha', lastname: 'Bravo'}
 ];
 
 var itemComponent = React.createClass({
@@ -57,17 +64,17 @@ var itemComponent = React.createClass({
 });
 
 function itemFilter(item) {
-	return {
-		href: '#' + item.id,
-		text: item.firstname + ' ' + item.lastname
-	};
+  return {
+    href: '#' + item.id,
+    text: item.firstname + ' ' + item.lastname
+  };
 }
 
 React.render(React.createElement(list, {
-	items: items,
-	itemFilter: itemFilter,
-	itemComponent: itemComponent,
-	cssClass: 'list'
+  items: items,
+  itemFilter: itemFilter,
+  itemComponent: itemComponent,
+  cssClass: 'list'
 }), document.querySelector('#content'));
 
 ```
@@ -76,8 +83,9 @@ React.render(React.createElement(list, {
 ## Properties
 
 - `items`: an array of items, where items can be an arbitrary object
-- `itemFilter`: a function that is called with each item and used to map the item to the properties of itemComponent
-- `itemComponent`: a react class that is used to display an item
+- `itemFilter`: an optional function that is called with each item and used to map the item to the properties of itemComponent
+- `itemComponent`: an optional react class that is used to display an item
+- `cssClass`: optional css class for the list
 
 
 ## License

@@ -3,10 +3,16 @@
 var React = require('react');
 var list = require('../');
 
+// Example 1
+React.render(React.createElement(list, {
+  items: ['Java', 'Java Flash', 'JavaScript']
+}), document.querySelector('#list-1'));
+
+// Example 2
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
   {id: 2, firstname: 'India', lastname: 'Juliet'},
-  {id: 3, firstname: 'Alpha', lastname: 'Bravo'},
+  {id: 3, firstname: 'Alpha', lastname: 'Bravo'}
 ];
 
 var itemComponent = React.createClass({
@@ -33,4 +39,5 @@ React.render(React.createElement(list, {
   itemFilter: itemFilter,
   itemComponent: itemComponent,
   cssClass: 'list'
-}), document.querySelector('#content'));
+}), document.querySelector('#list-2'));
+

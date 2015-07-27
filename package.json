@@ -21,12 +21,14 @@
   "dependencies": {
     "browserify": "^10.2",
     "ecstatic": "^0.8",
-    "jslint": "^0.8",
-    "mochify": "^2.6",
     "react": "^0.13",
     "stylus": "^0.52",
     "uglify-js": "^2.4",
     "watchify": "^3.2"
+  },
+  "devDependencies": {
+    "jslint": "^0.8",
+    "mochify": "^2.6"
   },
   "files": [
     "css",
