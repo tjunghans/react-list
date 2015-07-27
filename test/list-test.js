@@ -3,7 +3,9 @@
 'use strict';
 
 var React = require('react/addons');
+var TestUtils = React.addons.TestUtils;
 var assert = require('assert');
+var sinon = require('sinon');
 var List = require('../lib/list');
 
 function $(selector, context) {
@@ -81,6 +83,19 @@ describe('component', function () {
 
     assert.strictEqual($('.full-name', div).length, 3);
     assert.strictEqual($('span.full-name', div)[0].textContent, 'Max Muster');
+  });
+
+  it('calls onItemClick callback if set', function () {
+    var spy = sinon.spy();
+    render({
+      items: ['foo', 'bar'],
+      onItemClick: spy
+    });
+
+    TestUtils.Simulate.click($('li', div)[0]);
+
+    sinon.assert.calledOnce(spy);
+    sinon.assert.calledWith(spy, 'foo');
   });
 
 });

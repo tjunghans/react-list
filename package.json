@@ -7,7 +7,7 @@
   "scripts": {
     "test:browser": "mochify",
     "watch:browser": "npm run test:browser -- --watch",
-    "lint": "jslint --edition=latest --color ./lib/*.js ./public/main.js",
+    "lint": "jslint --edition=latest --color ./lib/*.js ./test/*js ./public/main.js",
     "pretest": "npm run lint",
     "test": "npm run test:browser",
     "build:js": "NODE_ENV=production browserify ./public/main.js | uglifyjs -cm > public/bundle.js",
@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "jslint": "^0.8",
-    "mochify": "^2.6"
+    "mochify": "^2.6",
+    "sinon": "^1.15"
   },
   "files": [
     "css",
