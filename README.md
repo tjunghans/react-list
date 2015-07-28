@@ -2,6 +2,7 @@
 
 [![SemVer]](http://semver.org)
 [![License]](https://github.com/tjunghans/react-list/blob/master/LICENCE)
+[![Build Status](https://travis-ci.org/tjunghans/react-list.svg?branch=master)](https://travis-ci.org/tjunghans/react-list)
 
 A react component that renders an array as a html list. The array can consist of
 primitives or objects. In the case of objects, the `formatItem` function
