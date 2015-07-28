@@ -17,11 +17,11 @@ function $(selector, context) {
 var dummyComponent = React.createClass({
   propTypes: {
     text: React.PropTypes.string.isRequired,
-    cssClass: React.PropTypes.string
+    customCssClass: React.PropTypes.string
   },
   render: function () {
     return (
-      React.DOM.span({className: this.props.cssClass}, this.props.text)
+      React.DOM.span({className: this.props.customCssClass}, this.props.text)
     );
   }
 });
@@ -38,7 +38,7 @@ describe('component', function () {
   var div;
 
   function render(params) {
-    React.render(React.createElement(List,
+    return React.render(React.createElement(List,
       prepareParams(params)), div);
   }
 
@@ -64,25 +64,41 @@ describe('component', function () {
     assert.equal($('ul.foobarbaz', div).length, 1);
   });
 
-  it('renders container with item object array', function () {
+  it('renders items with cssClass', function () {
     render({
       items: [
-        {fullName: 'Max Muster'},
-        {fullName: 'Joe Soap'},
-        {fullName: 'Canned Heat'}
+        {value: 'Max Muster', cssClass: 'foo'},
+        {value: 'Joe Soap', cssClass: 'bar'},
+        {value: 'Canned Heat'}
+      ]
+    });
+
+    assert($('li', div)[0].classList.contains('foo'));
+    assert($('li', div)[1].classList.contains('bar'));
+    assert.equal($('li', div)[2].classList.length, 0);
+    assert.equal($('li', div)[0].textContent, 'Max Muster');
+  });
+
+  it('renders items in custom component', function () {
+    render({
+      items: [
+        {fullName: 'Max Muster', value: 'max.muster'},
+        {fullName: 'Joe Soap', value: 'joe.soap'},
+        {fullName: 'Canned Heat', value: 'canned.heat'}
       ],
-      itemFilter: function (item) {
+      formatItem: function (item) {
         return {
           text: item.fullName,
-          cssClass: 'full-name'
+          customCssClass: 'full-name'
         };
       },
       itemComponent: dummyComponent
     });
 
 
-    assert.strictEqual($('.full-name', div).length, 3);
-    assert.strictEqual($('span.full-name', div)[0].textContent, 'Max Muster');
+    assert.strictEqual($('li', div).length, 3);
+    assert.strictEqual($('li span.full-name', div)[0].textContent,
+      'Max Muster');
   });
 
   it('calls onItemClick callback if set', function () {

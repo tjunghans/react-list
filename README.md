@@ -3,10 +3,12 @@
 [![SemVer]](http://semver.org)
 [![License]](https://github.com/tjunghans/react-list/blob/master/LICENCE)
 
-A react component that renders an array of objects (items) using the give component (itemComponent).
+A react component that renders an array as a html list. The array can consist of
+primitives or objects. In the case of objects, the `formatItem` function
+property can be used to format the item and return either a primitive or
+ object. By default a string is expected. In case of an object, a custom `itemComponent` will be needed.
 
-[Demo](http://tangiblej.neocities.org/react-list-example.html)
-
+[Demo](http://tangiblej.neocities.org/react-list-example-v2.html)
 
 ## Install
 
@@ -65,7 +67,7 @@ var itemComponent = React.createClass({
   }
 });
 
-function itemFilter(item) {
+function formatItem(item) {
   return {
     href: '#' + item.id,
     text: item.firstname + ' ' + item.lastname
@@ -74,7 +76,7 @@ function itemFilter(item) {
 
 React.render(React.createElement(list, {
   items: items,
-  itemFilter: itemFilter,
+  formatItem: formatItem,
   itemComponent: itemComponent,
   cssClass: 'list'
 }), document.querySelector('#content'));
@@ -85,10 +87,16 @@ React.render(React.createElement(list, {
 ## Properties
 
 - `items`: an array of items, where items can be an arbitrary object
-- `itemFilter`: an optional function that is called with each item and used to map the item to the properties of itemComponent
+- `formatItem`: an optional function that is called with each item and used to map the item to the properties of itemComponent
 - `itemComponent`: an optional react class that is used to display an item
 - `cssClass`: optional css class for the list
 - `onItemClick(item, index)`: optional click handler. The argument contains the value of the clicked item and its index.
+
+### List item properties
+
+- `cssClass`: If an item object contains the property `cssClass` it will be applied to the rendered `<li>` element.
+- `value`: If an item object contains the property `value` is used as the item
+  label if no custom `itemComponent` is given.
 
 
 ## License
