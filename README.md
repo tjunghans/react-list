@@ -105,6 +105,6 @@ React.render(React.createElement(list, {
 MIT
 
 [SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
-[License]: http://img.shields.io/npm/l/mochify.svg
+[License]: https://img.shields.io/github/license/mashape/apistatus.svg
 
 
