@@ -9,6 +9,17 @@ React.render(React.createElement(list, {
 }), document.querySelector('#list-1'));
 
 // Example 2
+React.render(React.createElement(list, {
+  items: [{
+    value: 'Apple'
+  }, {
+    value: 'Banana'
+  }, {
+    value: 'Cherry'
+  }]
+}), document.querySelector('#list-2'));
+
+// Example 3
 var items = [
   {id: 1, firstname: 'Mike', lastname: 'November'},
   {id: 2, firstname: 'India', lastname: 'Juliet'},
@@ -27,7 +38,7 @@ var itemComponent = React.createClass({
   }
 });
 
-function itemFilter(item) {
+function formatItem(item) {
   return {
     href: '#' + item.id,
     text: item.firstname + ' ' + item.lastname
@@ -36,8 +47,8 @@ function itemFilter(item) {
 
 React.render(React.createElement(list, {
   items: items,
-  itemFilter: itemFilter,
+  formatItem: formatItem,
   itemComponent: itemComponent,
   cssClass: 'list'
-}), document.querySelector('#list-2'));
+}), document.querySelector('#list-3'));
 

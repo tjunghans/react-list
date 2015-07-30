@@ -34,7 +34,7 @@ npm start & npm run watch
 - `npm start` - start static dev server
 
 
-## Usage 1 - Basic Example)
+## Usage 1 - Basic Example
 
 ```javascript
 var React = require('react');
@@ -47,7 +47,25 @@ React.render(React.createElement(list, {
 ```
 
 
-## Usage 2 - With item component and filter
+## Usage 2 - With object
+
+Note that the value property is used as the label by default. This allows
+the usage of objects without the help of the item formatter and component.
+
+```javascript
+React.render(React.createElement(list, {
+  items: [{
+    value: 'Apple'
+  }, {
+    value: 'Banana'
+  }, {
+    value: 'Cherry'
+  }]
+}), document.querySelector('#list-2'));
+```
+
+
+## Usage 3 - With object, item component and formatter
 
 ```javascript
 var items = [
@@ -80,7 +98,7 @@ React.render(React.createElement(list, {
   formatItem: formatItem,
   itemComponent: itemComponent,
   cssClass: 'list'
-}), document.querySelector('#content'));
+}), document.querySelector('#list-2'));
 
 ```
 
@@ -96,7 +114,7 @@ React.render(React.createElement(list, {
 ### List item properties
 
 - `cssClass`: If an item object contains the property `cssClass` it will be applied to the rendered `<li>` element.
-- `value`: If an item object contains the property `value` is used as the item
+- `value`: If an item object contains the property `value`, it is used as the item
   label if no custom `itemComponent` is given.
 
 
