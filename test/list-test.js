@@ -111,7 +111,7 @@ describe('component', function () {
     TestUtils.Simulate.click($('li', div)[0]);
 
     sinon.assert.calledOnce(spy);
-    sinon.assert.calledWith(spy, 'foo');
+    sinon.assert.calledWith(spy, sinon.match.object, 'foo');
   });
 
 });
