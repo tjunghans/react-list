@@ -9,7 +9,7 @@ primitives or objects. In the case of objects, the `formatItem` function
 property can be used to format the item and return either a primitive or
  object. By default a string is expected. In case of an object, a custom `itemComponent` will be needed.
 
-[Demo](http://tangiblej.neocities.org/react-list-example-v2.html)
+[Demo](http://tangiblej.neocities.org/react_list_example_v2.html)
 
 ## Install
 
