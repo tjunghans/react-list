@@ -109,7 +109,7 @@ React.render(React.createElement(list, {
 - `formatItem`: an optional function that is called with each item and used to map the item to the properties of itemComponent
 - `itemComponent`: an optional react class that is used to display an item
 - `cssClass`: optional css class for the list
-- `onItemClick(item, index)`: optional click handler. The argument contains the value of the clicked item and its index.
+- `onItemClick(event, item, index)`: optional click handler. The argument contains the value of the clicked item and its index.
 
 ### List item properties
 
