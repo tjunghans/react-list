@@ -2,8 +2,9 @@
 /*jshint maxstatements:false */
 'use strict';
 
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var assert = require('assert');
 var sinon = require('sinon');
 var List = require('../lib/list');
@@ -38,7 +39,7 @@ describe('component', function () {
   var div;
 
   function render(params) {
-    return React.render(React.createElement(List,
+    return ReactDOM.render(React.createElement(List,
       prepareParams(params)), div);
   }
 
@@ -48,7 +49,7 @@ describe('component', function () {
 
   afterEach(function () {
     if (div) {
-      React.unmountComponentAtNode(div);
+      ReactDOM.unmountComponentAtNode(div);
     }
   });
 
@@ -77,6 +78,22 @@ describe('component', function () {
     assert($('li', div)[1].classList.contains('bar'));
     assert.equal($('li', div)[2].classList.length, 0);
     assert.equal($('li', div)[0].textContent, 'Max Muster');
+  });
+
+  it('renders array of items in custom component', function () {
+    render({
+      items: ['a', 'b', 'c'],
+      itemComponent: dummyComponent,
+      formatItem: function (item) {
+        return {
+          text: item
+        };
+      }
+    });
+
+    assert.strictEqual($('li', div).length, 3);
+    assert.strictEqual($('li span', div)[0].textContent,
+      'a');
   });
 
   it('renders items in custom component', function () {

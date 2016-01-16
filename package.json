@@ -6,6 +6,7 @@
   "main": "./lib/list",
   "scripts": {
     "test:browser": "mochify",
+    "wd": "mochify --wd",
     "watch:browser": "npm run test:browser -- --watch",
     "lint": "jslint --edition=latest --color ./lib/*.js ./test/*js ./public/main.js",
     "pretest": "npm run lint",
@@ -19,23 +20,24 @@
     "watch": "npm run watch:js & npm run watch:css"
   },
   "dependencies": {
-    "browserify": "^10.2",
-    "ecstatic": "^0.8",
-    "react": "^0.13",
-    "stylus": "^0.52",
-    "uglify-js": "^2.4",
-    "watchify": "^3.2"
+    "react": "^0.14.6",
+    "react-dom": "^0.14.5"
   },
   "devDependencies": {
+    "react-addons-test-utils": "^0.14.6",
+    "ecstatic": "^0.8",
+    "stylus": "^0.52",
+    "uglify-js": "^2.4",
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1",
     "jslint": "^0.8",
     "mochify": "^2.6",
     "sinon": "^1.15"
   },
   "files": [
-    "css",
     "lib",
-    "public",
-    "README.md"
+    "README.md",
+    "LICENCE"
   ],
   "repository": {
     "type": "git",

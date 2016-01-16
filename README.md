@@ -4,10 +4,10 @@
 [![License]](https://github.com/tjunghans/react-list/blob/master/LICENCE)
 [![Build Status](https://travis-ci.org/tjunghans/react-list.svg?branch=master)](https://travis-ci.org/tjunghans/react-list)
 
-A react component that renders an array as a html list. The array can consist of
+A react component that renders an array as an html list. The array can consist of
 primitives or objects. In the case of objects, the `formatItem` function
 property can be used to format the item and return either a primitive or
- object. By default a string is expected. In case of an object, a custom `itemComponent` will be needed.
+ object. By default a string is expected. In case of an object, a custom `itemComponent` is required.
 
 [Demo](http://tangiblej.neocities.org/react_list_example_v2.html)
 
@@ -18,20 +18,6 @@ Install as node dependency:
 ```
 npm install react-simple-list --save
 ```
-
-
-## Quickstart
-
-```
-npm start & npm run watch
-```
-
-
-## Commands
-
-- `npm run build` - build production css and js
-- `npm run watch` - compile css and js
-- `npm start` - start static dev server
 
 
 ## Usage 1 - Basic Example
@@ -49,7 +35,7 @@ React.render(React.createElement(list, {
 
 ## Usage 2 - With object
 
-Note that the value property is used as the label by default. This allows
+Note that the `value` property is used as the label by default. This allows
 the usage of objects without the help of the item formatter and component.
 
 ```javascript
@@ -117,6 +103,16 @@ React.render(React.createElement(list, {
 - `value`: If an item object contains the property `value`, it is used as the item
   label if no custom `itemComponent` is given.
 
+## Run local demo
+
+```
+npm start & npm run watch
+```
+
+
+- `npm run build` - build production css and js
+- `npm run watch` - compile css and js
+- `npm start` - start static dev server
 
 ## License
 
